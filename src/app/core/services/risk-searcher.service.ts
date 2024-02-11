@@ -7,7 +7,7 @@ import {
 } from "@angular/common/http";
 import {Supplier} from "../models/Supplier";
 import {Observable, retry} from "rxjs";
-import {RiskFinder} from "../models/RiskFinder";
+import {RiskFinder, RiskFinderResponse} from "../models/RiskFinder";
 
 @Injectable({
   providedIn: 'root'
@@ -26,15 +26,15 @@ export class RiskSearcherService {
       )
   }
 
-  searchByAddres(address: string): Observable<HttpResponse<RiskFinder> | HttpErrorResponse>{
-    return this.http.post<RiskFinder>(this.basePath, JSON.stringify({address: address}), {...this.httpOptions, observe:'response'})
+  searchByAddres(address: string): Observable<HttpResponse<RiskFinderResponse> | HttpErrorResponse>{
+    return this.http.post<RiskFinderResponse>(this.basePath, JSON.stringify({address: address}), {...this.httpOptions, observe:'response'})
       .pipe(
         retry(2)
       )
   }
 
-  searchBussineesName(bussinessName: string): Observable<HttpResponse<RiskFinder> | HttpErrorResponse>{
-    return this.http.post<RiskFinder>(this.basePath, JSON.stringify({name: bussinessName}), {...this.httpOptions, observe:'response'})
+  searchBussineesName(bussinessName: string): Observable<HttpResponse<RiskFinderResponse> | HttpErrorResponse>{
+    return this.http.post<RiskFinderResponse>(this.basePath, JSON.stringify({name: bussinessName}), {...this.httpOptions, observe:'response'})
       .pipe(
         retry(2)
       )
