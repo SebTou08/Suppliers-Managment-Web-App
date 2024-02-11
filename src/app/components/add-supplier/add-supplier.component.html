@@ -1,0 +1,66 @@
+<div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+  <form #registerForm="ngForm" (ngSubmit)="doRegisterSupplier()">
+
+    <div class="p-fluid" style="display: grid; gap: 5px">
+      <div class="field mb-4">
+        <input id="businessName" type="text" pInputText ngModel
+               name="businessName"
+               required class="w-full" placeholder="BusinessName"
+               [(ngModel)]="newSupplier.businessName">
+      </div>
+
+      <div class="field mb-4">
+        <input id="tradename" type="tradename" pInputText ngModel
+               name="tradename" required class="w-full"
+               placeholder="Trade Name" [(ngModel)]="newSupplier.tradename">
+      </div>
+
+
+      <div class="field mb-4">
+        <input id="taxIdentification" type="text" pInputText ngModel
+               name="taxIdentification" required class="w-full"
+               placeholder="Tax Identification" [(ngModel)]="newSupplier.taxIdentification">
+      </div>
+
+      <div class="field mb-4">
+        <input id="phoneNumber" type="text" pInputText ngModel
+               name="phoneNumber"  class="w-full"
+               placeholder="Phone Number"
+                     [(ngModel)]="newSupplier.phoneNumber" >
+      </div>
+
+      <div class="field mb-4">
+        <input id="email" type="email" pInputText ngModel
+               name="email" required class="w-full"
+               placeholder="Email" [(ngModel)]="newSupplier.email">
+      </div>
+
+      <div class="field mb-4">
+        <input id="website" type="text" pInputText ngModel
+               name="website" required class="w-full"
+               placeholder="Website" [(ngModel)]="newSupplier.website">
+      </div>
+
+      <div class="field mb-4">
+        <input id="address" type="text" pInputText ngModel
+               name="address" required class="w-full"
+               placeholder="Address" [(ngModel)]="newSupplier.address">
+      </div>
+
+      <div class="field mb-4">
+        <input id="country" type="text" pInputText ngModel
+               name="country" required class="w-full"
+               placeholder="Country" [(ngModel)]="newSupplier.country">
+      </div>
+
+      <div class="field mb-4">
+        <p-inputNumber id="annualBilling"  pInputText ngModel
+               name="annualBilling"  class="w-full" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="5"
+               placeholder="Annual Billing"
+                       [(ngModel)]="newSupplier.annualBilling" />
+      </div>
+
+      <button pButton pRipple label="Register" icon="pi pi-user" class="w-full"></button>
+    </div>
+  </form>
+</div>

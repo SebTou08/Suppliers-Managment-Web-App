@@ -1,0 +1,42 @@
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="loading">Loading...</div>
+</div>
+<div class="card">
+  <div class="p-fluid" style="display: grid; gap: 5px; max-width: 40%">
+    <div class="field mb-2">
+
+      <p-multiSelect class="multiselect-custom-virtual-scroll select"
+                     [options]="databases" [(ngModel)]="selectedDatabases"
+                     [virtualScroll]="true"
+                     [filter]="true"
+                     placeholder="Select database"
+                     [virtualScrollItemSize]="43"
+                     optionLabel="name"></p-multiSelect>
+      <p-button (onClick)="searchForRisks()" label="Submit"></p-button>
+    </div>
+
+  </div>
+  <p-table [value]="risksFounds" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Address</th>
+        <th>List</th>
+        <th>Name</th>
+        <th>Program</th>
+        <th>Score</th>
+        <th>Type</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-risks>
+      <tr>
+        <td>{{ risks.address }}</td>
+        <td>{{ risks.list }}</td>
+        <td>{{ risks.name }}</td>
+        <td>{{ risks.program }}</td>
+        <td>{{ risks.score }}</td>
+        <td>{{ risks.type }}</td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
