@@ -50,4 +50,11 @@ export class SupplierComponent {
       }
     })
   }
+
+  openWebsite = (website: string) => {
+    if(this.isEditable){
+      console.log('222')
+      window.open(website, "_blank")
+    }
+  }
 }

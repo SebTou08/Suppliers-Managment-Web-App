@@ -16,7 +16,8 @@
     </div>
 
   </div>
-  <p-table [value]="risksFounds" [tableStyle]="{ 'min-width': '50rem' }">
+  hits: <h5>{{risksFounds.hits || 'pp'}}</h5>
+  <p-table [value]="risksFounds.results" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th>Address</th>
@@ -37,6 +38,8 @@
         <td>{{ risks.type }}</td>
 
       </tr>
+    </ng-template>
+    <ng-template pTemplate="summary"> hits: <h5>{{risksFounds.hits}}</h5>
     </ng-template>
   </p-table>
 </div>

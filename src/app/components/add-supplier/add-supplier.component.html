@@ -1,63 +1,78 @@
 <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
-  <form #registerForm="ngForm" (ngSubmit)="doRegisterSupplier()">
+  <form [formGroup]="form"  (ngSubmit)="doRegisterSupplier()">
 
     <div class="p-fluid" style="display: grid; gap: 5px">
+
+
       <div class="field mb-4">
-        <input id="businessName" type="text" pInputText ngModel
-               name="businessName"
+        <p-dropdown [options]="countries" formControlName="country"
+                    optionLabel="name"
+                    [showClear]="true" placeholder="Select a Country">
+<!--          <ng-template pTemplate="selectedItem">-->
+<!--&lt;!&ndash;            <div class="flex align-items-center gap-2" *ngIf="selectedCountry">&ndash;&gt;-->
+<!--&lt;!&ndash;              <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px"/>&ndash;&gt;-->
+<!--&lt;!&ndash;              <div>{{ selectedCountry.name }}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--          </ng-template>-->
+          <ng-template let-country pTemplate="item">
+            <div class="flex align-items-center gap-2">
+              <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px"/>
+              <div>{{ country.name }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+
+      <div class="field mb-4">
+        <input id="businessName" type="text" pInputText
                required class="w-full" placeholder="BusinessName"
-               [(ngModel)]="newSupplier.businessName">
+               formControlName="businessName"
+              >
       </div>
 
       <div class="field mb-4">
-        <input id="tradename" type="tradename" pInputText ngModel
-               name="tradename" required class="w-full"
-               placeholder="Trade Name" [(ngModel)]="newSupplier.tradename">
+        <input id="tradename" type="tradename" pInputText
+                required class="w-full"
+               placeholder="Trade Name" formControlName="tradename">
       </div>
 
 
       <div class="field mb-4">
-        <input id="taxIdentification" type="text" pInputText ngModel
-               name="taxIdentification" required class="w-full"
-               placeholder="Tax Identification" [(ngModel)]="newSupplier.taxIdentification">
+        <input id="taxIdentification" type="text" pInputText
+                required class="w-full"
+               placeholder="Tax Identification" formControlName="taxIdentification">
       </div>
 
       <div class="field mb-4">
-        <input id="phoneNumber" type="text" pInputText ngModel
-               name="phoneNumber"  class="w-full"
-               placeholder="Phone Number"
-                     [(ngModel)]="newSupplier.phoneNumber" >
+        <input id="phoneNumber" type="text" pInputText
+                 class="w-full"
+               placeholder="Phone Number" formControlName="phoneNumber">
       </div>
 
       <div class="field mb-4">
-        <input id="email" type="email" pInputText ngModel
-               name="email" required class="w-full"
-               placeholder="Email" [(ngModel)]="newSupplier.email">
+        <input id="email" type="email" pInputText
+                required class="w-full"
+               placeholder="Email" formControlName="email">
       </div>
 
       <div class="field mb-4">
-        <input id="website" type="text" pInputText ngModel
-               name="website" required class="w-full"
-               placeholder="Website" [(ngModel)]="newSupplier.website">
+        <input id="website" type="text" pInputText
+               required class="w-full"
+               placeholder="Website" formControlName="website">
       </div>
 
       <div class="field mb-4">
-        <input id="address" type="text" pInputText ngModel
-               name="address" required class="w-full"
-               placeholder="Address" [(ngModel)]="newSupplier.address">
+        <input id="address" type="text" pInputText
+                required class="w-full"
+               placeholder="Address" formControlName="address">
       </div>
 
-      <div class="field mb-4">
-        <input id="country" type="text" pInputText ngModel
-               name="country" required class="w-full"
-               placeholder="Country" [(ngModel)]="newSupplier.country">
-      </div>
 
       <div class="field mb-4">
-        <p-inputNumber id="annualBilling"  pInputText ngModel
-               name="annualBilling"  class="w-full" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="5"
+        <p-inputNumber id="annualBilling"  pInputText
+                 class="w-full" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="5"
                placeholder="Annual Billing"
-                       [(ngModel)]="newSupplier.annualBilling" />
+                       formControlName="annualBilling" />
       </div>
 
       <button pButton pRipple label="Register" icon="pi pi-user" class="w-full"></button>

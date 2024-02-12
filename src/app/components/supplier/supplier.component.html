@@ -7,14 +7,14 @@
                name="businessName"
                required class="w-full" placeholder="BusinessName"
                [(ngModel)]="supplier.businessName"
-               [attr.disabled]="!isEditable ? '' : null">
+               [disabled]="!isEditable">
       </div>
 
       <div class="field mb-4">
         <input id="tradename" type="tradename" pInputText ngModel
                name="tradename" required class="w-full"
                placeholder="Trade Name" [(ngModel)]="supplier.tradename"
-               [attr.disabled]="!isEditable ? '' : null">
+               [disabled]="!isEditable">
       </div>
 
 
@@ -22,56 +22,63 @@
         <input id="taxIdentification" type="text" pInputText
                ngModel
                name="taxIdentification" required class="w-full"
-               placeholder="Tax Identification" [(ngModel)]="supplier.taxIdentification"
-               disabled>
+               placeholder="Tax Identification"
+               [(ngModel)]="supplier.taxIdentification"
+               [disabled]="true">
 
       </div>
 
       <div class="field mb-4">
         <input id="phoneNumber" type="text" pInputText ngModel
-               name="phoneNumber"  class="w-full"
+               name="phoneNumber" class="w-full"
                placeholder="Phone Number"
                [(ngModel)]="supplier.phoneNumber"
-               [attr.disabled]="!isEditable ? '' : null">
+               [disabled]="!isEditable">
       </div>
 
       <div class="field mb-4">
         <input id="email" type="email" pInputText ngModel
                name="email" required class="w-full"
                placeholder="Email" [(ngModel)]="supplier.email"
-               [attr.disabled]="!isEditable ? '' : null">
+               [disabled]="!isEditable">
       </div>
 
       <div class="field mb-4">
         <input id="website" type="text" pInputText ngModel
                name="website" required class="w-full"
                placeholder="Website" [(ngModel)]="supplier.website"
-               [attr.disabled]="!isEditable ? '' : null">
+               [readonly]="!isEditable">
+        <a *ngIf="!isEditable" [href]="supplier.website" target="_blank" class="p-button p-component p-button-text">
+          Open website
+        </a>
       </div>
+
 
       <div class="field mb-4">
         <input id="address" type="text" pInputText ngModel
                name="address" required class="w-full"
                placeholder="Address" [(ngModel)]="supplier.address"
-               [attr.disabled]="!isEditable ? '' : null">
+               [disabled]="!isEditable">
       </div>
 
       <div class="field mb-4">
         <input id="country" type="text" pInputText ngModel
                name="country" required class="w-full"
                placeholder="Country" [(ngModel)]="supplier.country"
-               [attr.disabled]="!isEditable ? '' : null">
+               [disabled]="!isEditable">
       </div>
 
       <div class="field mb-4">
-        <p-inputNumber id="annualBilling"  pInputText ngModel
-                       name="annualBilling"  class="w-full" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="5"
+        <p-inputNumber id="annualBilling" pInputText ngModel
+                       name="annualBilling" class="w-full" mode="decimal"
+                       [minFractionDigits]="2" [maxFractionDigits]="5"
                        placeholder="Annual Billing"
                        [(ngModel)]="supplier.annualBilling"
-                       [attr.disabled]="!isEditable ? '' : null"/>
+                       [disabled]="!isEditable"/>
       </div>
 
-      <button *ngIf="isEditable" pButton pRipple label="Update" icon="pi pi-user"
+      <button *ngIf="isEditable" pButton pRipple label="Update"
+              icon="pi pi-user"
               class="w-full"></button>
     </div>
   </form>
