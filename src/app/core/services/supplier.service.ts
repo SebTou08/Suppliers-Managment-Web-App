@@ -7,13 +7,14 @@ import {
 } from "@angular/common/http";
 import {catchError, Observable, retry, throwError} from "rxjs";
 import {Supplier} from "../models/Supplier";
+import {environment} from "../../../enviroments/enviroment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SupplierService {
 
-  private basePath: string = 'https://localhost:44378/api/supplier';
+  private basePath: string = environment.supplierAPI;
   constructor(private http: HttpClient) { }
 
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})};

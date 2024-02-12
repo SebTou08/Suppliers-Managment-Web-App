@@ -1,0 +1,17 @@
+<div class="login-container">
+  <div class="login-card">
+    <form [formGroup]="form" class="login-form" (ngSubmit)="doLogIn()">
+      <input id="email1" type="text"
+             placeholder="Email address"
+             formControlName="email"
+             pInputText class="w-full mb-3">
+
+      <input id="password1" formControlName="password" type="password"
+             placeholder="Password"
+             pInputText class="w-full mb-3">
+      <div class="login-buttons">
+        <button  type="submit" class="login-button">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

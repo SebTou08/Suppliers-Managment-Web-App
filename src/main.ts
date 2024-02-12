@@ -9,12 +9,16 @@ import {
   BrowserAnimationsModule,
   provideAnimations
 } from "@angular/platform-browser/animations";
+import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
+import {getAuth, provideAuth} from "@angular/fire/auth";
+import {environment} from "./enviroments/enviroment";
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
     provideRouter(routes),
-    importProvidersFrom([BrowserAnimationsModule])
+    importProvidersFrom([BrowserAnimationsModule, provideFirebaseApp(() => initializeApp(environment.firebaseConfig))]),
+    importProvidersFrom(provideAuth(() => getAuth()))
   ]
 })
   .catch((err) => console.error(err));

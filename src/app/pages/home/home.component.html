@@ -2,8 +2,10 @@
   <div class="loading">Loading...</div>
 </div>
 <div class="card flex justify-content-center">
-  <p-button (click)="showDialogForNewSupplier()" icon="pi pi-external-link"
-            label="Register Supplier"></p-button>
+  <app-toolbar (newSupplier)="showDialogForNewSupplier()" />
+
+<!--  <p-button (click)="showDialogForNewSupplier()" icon="pi pi-external-link"-->
+<!--            label="Register Supplier"></p-button>-->
   <p-toast></p-toast>
 <div class="card">
   <p-table [value]="suppliers" [tableStyle]="{ 'min-width': '50rem' }">
@@ -36,7 +38,9 @@
           <p-button (onClick)="showDialogForRiskSearcher(supplier)"
                     icon="pi pi-exclamation-triangle" [rounded]="true"
                      severity="warning"></p-button>
-          <p-button icon="pi pi-times" [rounded]="true" severity="danger"></p-button>
+          <p-button icon="pi pi-times" (click)="confirm2($event, supplier)"
+                    [rounded]="true"
+                    severity="danger"></p-button>
         </td>
       </tr>
     </ng-template>
@@ -52,6 +56,7 @@
   <p-dialog header="Risk searcher" [(visible)]="dialogForRiskSearcher"
             [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '80vw',
             height: '500px' }"
+            (onHide)="onRiskSearchDialogHide()"
             [draggable]="false" [resizable]="false" [modal]="true">
 
     <app-risk-searcher [supplier]="selectedSupplier!"  />
@@ -65,6 +70,8 @@
     <app-supplier [supplier]="selectedSupplier!" [isEditable]="isEditable"
                   (supplierEdited)="editedSupplier()"/>
   </p-dialog>
+
+  <p-confirmDialog></p-confirmDialog>
 
 </div>
 </div>
