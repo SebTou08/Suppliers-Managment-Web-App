@@ -20,22 +20,32 @@
   <p-table [value]="risksFounds.results" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
+        <th>Database taken</th>
         <th>Address</th>
         <th>List</th>
         <th>Name</th>
         <th>Program</th>
         <th>Score</th>
         <th>Type</th>
+        <th>Entity</th>
+        <th>Jurisdiction</th>
+        <th>Linked to</th>
+        <th>Source</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-risks>
       <tr>
+        <td>{{ risks.database }}</td>
         <td>{{ risks.address }}</td>
         <td>{{ risks.list }}</td>
         <td>{{ risks.name }}</td>
         <td>{{ risks.program }}</td>
         <td>{{ risks.score }}</td>
         <td>{{ risks.type }}</td>
+        <td>{{ risks.entity }}</td>
+        <td>{{ risks.jurisdiction }}</td>
+        <td>{{ risks.linked_to }}</td>
+        <td>{{ risks.source }}</td>
 
       </tr>
     </ng-template>

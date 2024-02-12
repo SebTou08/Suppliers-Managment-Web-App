@@ -113,4 +113,5 @@ export class RiskSearcherComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.risksFounds = {hits: "", results: []}
   }
+
 }
